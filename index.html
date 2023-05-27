@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テンパイチャンス</title>
+</head>
+<body>
+
+    <h1>ランダムな画像表示</h1>
+  <div id="imageContainer">
+    <!-- 40枚の画像を追加 -->
+    <img src="" alt="">
+    
+    <img src="p3.png" alt="">
+    <img src="p3,1.png" alt="">
+    <img src="p3,2.png" alt="">
+    <img src="p3,3.png" alt="">
+    <img src="p4.png" alt="">
+    <img src="p4,1.png" alt="">
+    <img src="p4,2.png" alt="">
+    <img src="p4,3.png" alt="">
+    <img src="p5.png" alt="">
+    <img src="p5,1.png" alt="">
+    <img src="p5,2.png" alt="">
+    <img src="p5,3.png" alt="">
+    <img src="p6.png" alt="">
+    <img src="p6,1.png" alt="">
+    <img src="p6,2.png" alt="">
+    <img src="p6,3.png" alt="">
+    <img src="p7.png" alt="">
+    <img src="p7,1.png" alt="">
+    <img src="p7,2.png" alt="">
+    <img src="p7,3.png" alt="">
+    <img src="s3.png" alt="">
+    <img src="s3,1.png" alt="">
+    <img src="s3,2.png" alt="">
+    <img src="s3,3.png" alt="">
+    <img src="s4.png" alt="">
+    <img src="s4,1.png" alt="">
+    <img src="s4,2.png" alt="">
+    <img src="s4,3.png" alt="">
+    <img src="s5.png" alt="">
+    <img src="s5,1.png" alt="">
+    <img src="s5,2.png" alt="">
+    <img src="s5,3.png" alt="">
+    <img src="s6.png" alt="">
+    <img src="s6,1.png" alt="">
+    <img src="s6,2.png" alt="">
+    <img src="s6,3.png" alt="">
+    <img src="s7.png" alt="">
+    <img src="s7,1.png" alt="">
+    <img src="s7,2.png" alt="">
+    <img src="s7,3.png" alt="">
+    <!-- <img src="m1.png" alt="">
+    <img src="m1,1.png" alt="">
+    <img src="m1,2.png" alt="">
+    <img src="m1,3.png" alt="">
+    <img src="m2.png" alt="">
+    <img src="m2,1.png" alt="">
+    <img src="m2,2.png" alt="">
+    <img src="m2,3.png" alt=""> -->
+    <img src="m7.png" alt="">
+    <img src="m7,1.png" alt="">
+    <img src="m7,2.png" alt="">
+    <img src="m7,3.png" alt="">
+    <img src="m8.png" alt="">
+    <img src="m8,1.png" alt="">
+    <img src="m8,2.png" alt="">
+    <img src="m8,3.png" alt="">
+    
+  </div>
+
+  <script>
+    // 画像の配列を作成
+    var images = [
+    "p3.png" ,
+"p3,1.png",
+"p3,2.png",
+"p3,3.png",
+"p4.png" ,
+"p4,1.png",
+"p4,2.png",
+"p4,3.png",
+"p5.png" ,
+"p5,1.png",
+"p5,2.png",
+"p5,3.png",
+"p6.png" ,
+"p6,1.png",
+"p6,2.png",
+"p6,3.png",
+"p7.png" ,
+"p7,1.png",
+"p7,2.png",
+"p7,3.png",
+"s3.png" ,
+"s3,1.png",
+"s3,2.png",
+"s3,3.png",
+"s4.png" ,
+"s4,1.png",
+"s4,2.png",
+"s4,3.png",
+"s5.png" ,
+"s5,1.png",
+"s5,2.png",
+"s5,3.png",
+"s6.png" ,
+"s6,1.png",
+"s6,2.png",
+"s6,3.png",
+"s7.png" ,
+"s7,1.png",
+"s7,2.png",
+"s7,3.png",
+// "m1.png",
+// "m1,1.png",
+// "m1,2.png",
+// "m1,3.png",
+// "m2.png" ,
+// "m2,1.png",
+// "m2,2.png",
+// "m2,3.png",
+"m7.png" ,
+"m7,1.png",
+"m7,2.png",
+"m7,3.png",
+"m8.png" ,
+"m8,1.png",
+"m8,2.png",
+"m8,3.png",
+    ];
+
+    // ランダムな13枚の画像を表示する関数
+    function displayRandomImages() {
+      var randomImages = [];
+
+      // 13枚のランダムな画像を選択
+      while (randomImages.length < 14) {
+        var randomIndex = Math.floor(Math.random() * images.length);
+        var randomImage = images[randomIndex];
+
+        // すでに選択された画像でないことを確認
+        if (!randomImages.includes(randomImage)) {
+          randomImages.push(randomImage);
+        }
+      }
+
+      // 画像コンテナの要素を取得
+      var imageContainer = document.getElementById("imageContainer");
+
+      // 画像コンテナ内の画像を削除
+      while (imageContainer.firstChild) {
+        imageContainer.removeChild(imageContainer.firstChild);
+      }
+
+      // ランダムな画像のファイル名を昇順にソート
+      randomImages.sort();
+
+      // ランダムな画像を表示
+      randomImages.forEach(function(imageSrc) {
+        var imgElement = document.createElement("img");
+        imgElement.src = imageSrc;
+        imageContainer.appendChild(imgElement);
+      });
+    }
+
+    // ページの読み込み後にランダムな画像を表示する
+    window.addEventListener("load", displayRandomImages);
+  </script>
+    
+</body>
+</html>
